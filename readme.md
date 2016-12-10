@@ -3,8 +3,8 @@ This project involved using the MQTT protocol to publish sensor data to the Adaf
 The implementation was done with Micropython on an ESP8266 platform.
 
 ##Hardware
-Adafruit Huzzah ESP8266
-Adafruit temperature sensor breakout MCP9808
+Adafruit Huzzah ESP8266  
+Adafruit temperature sensor breakout MCP9808  
 ![wp_20161209_003](https://cloud.githubusercontent.com/assets/12716600/21067012/b8ef1d9e-be1d-11e6-89ca-d92cfb1e665a.jpg)
 
 ##Here is an example of the Adafruit Dashboard:
