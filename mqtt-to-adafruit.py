@@ -1,4 +1,4 @@
-#
+# OPEN-SOURCE isAwesome!
 # Micropython ESP8266 code to Publish temperature sensor data to an Adafruit IO Feed using the MQTT protocol
 # Also publishes statistics on the number of free bytes on the micropython Heap
 #
