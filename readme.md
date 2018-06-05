@@ -18,7 +18,7 @@ the [Adafruit IO](https://io.adafruit.com) cloud service.  Two example code file
     * AIO Key (select "View AIO Key" in Adafruit IO)
     * Adafruit UserName (shown on the same page as the AIO Key)
 
-### Publishing data to Adafruit IO feeds
+## Publishing data to Adafruit IO feeds
 
 #### Usage
 1. Install the UMQTT Package (if needed)
