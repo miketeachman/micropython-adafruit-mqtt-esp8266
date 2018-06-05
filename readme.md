@@ -62,7 +62,7 @@ The file _pubAndSub.py_ shows how a single device can both publish and subscribe
 in this example.  The non-blocking call client.check_msg() is used rather than the blocking call 
 client.wait_msg().  The debug print output shows the subscription receiving the published data.  
 
-![publish and subscribe](images/pubAndSub.png)
+![publish and subscribe](images/pubandsub.png)
 
 ### Limitations
 * CircuitPython 3.0.0 will continually reset if a secure data connection is enabled
