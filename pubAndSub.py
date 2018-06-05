@@ -2,8 +2,8 @@
 # Copyright (c) 2018 Mike Teachman
 # https://opensource.org/licenses/MIT
 #
-# Example MicroPython and CircuitPython code showing how to use the MQTT protocol to  
-# publish data to an Adafruit IO feed
+# Example MicroPython and CircuitPython code showing how to use the MQTT protocol with Adafruit IO, to  
+# publish and subscribe on the same device
 #
 # Tested using the releases:
 #   ESP8266
@@ -27,6 +27,12 @@ from umqtt.robust import MQTTClient
 import os
 import gc
 import sys
+
+# the following function is the callback which is 
+# called when subscribed data is received
+def cb(topic, msg):
+    print('Subscribe:  Received Data:  Topic = {}, Msg = {}\n'.format(topic, msg))
+    free_heap = int(str(msg,'utf-8'))
 
 # WiFi connection information
 WIFI_SSID = '<ENTER_WIFI_SSID>'
@@ -72,6 +78,7 @@ client = MQTTClient(client_id=mqtt_client_id,
                     user=ADAFRUIT_USERNAME, 
                     password=ADAFRUIT_IO_KEY,
                     ssl=False)
+                    
 try:            
     client.connect()
 except Exception as e:
@@ -79,18 +86,32 @@ except Exception as e:
     sys.exit()
 
 # publish free heap statistics to Adafruit IO using MQTT
+# subscribe to the same feed
 #
 # format of feed name:  
 #   "ADAFRUIT_USERNAME/feeds/ADAFRUIT_IO_FEEDNAME"
 mqtt_feedname = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_USERNAME, ADAFRUIT_IO_FEEDNAME), 'utf-8')
+client.set_callback(cb)      
+client.subscribe(mqtt_feedname)  
 PUBLISH_PERIOD_IN_SEC = 10 
+SUBSCRIBE_CHECK_PERIOD_IN_SEC = 0.5 
+accum_time = 0
 while True:
     try:
-        free_heap_in_bytes = gc.mem_free()
-        client.publish(mqtt_feedname,    
-                   bytes(str(free_heap_in_bytes), 'utf-8'), 
-                   qos=0)  
-        time.sleep(PUBLISH_PERIOD_IN_SEC)
+        # Publish
+        if accum_time >= PUBLISH_PERIOD_IN_SEC:
+            free_heap_in_bytes = gc.mem_free()
+            print('Publish:  freeHeap = {}'.format(free_heap_in_bytes))
+            client.publish(mqtt_feedname,    
+                           bytes(str(free_heap_in_bytes), 'utf-8'), 
+                           qos=0) 
+            accum_time = 0                
+        
+        # Subscribe.  Non-blocking check for a new message.  
+        client.check_msg()
+
+        time.sleep(SUBSCRIBE_CHECK_PERIOD_IN_SEC)
+        accum_time += SUBSCRIBE_CHECK_PERIOD_IN_SEC
     except KeyboardInterrupt:
         print('Ctrl-C pressed...exiting')
         client.disconnect()

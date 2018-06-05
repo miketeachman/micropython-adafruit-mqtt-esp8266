@@ -23,7 +23,7 @@ the [Adafruit IO](https://io.adafruit.com) cloud service.  Two example code file
 #### Usage
 1. Install the UMQTT Package (if needed)
 See section below **Installing UMQTT Package**
-1. Configure parameters in file **adafruitPublish.py"**
+1. Configure parameters in file **publishAdafruit.py"**
    * <ENTER_WIFI_SSID>
    * <ENTER_WIFI_PASSWORD>
    * <ENTER_ADAFRUIT_USERNAME>
@@ -44,7 +44,7 @@ $ ampy -pCOMx -d1 put publishAdafruit.py main.py
 #### Usage
 1. Install the UMQTT Package (if needed)
 See section below **Installing UMQTT Package**
-1. Configure parameters in file **adafruitSubscribe.py"**
+1. Configure parameters in file **subscribeAdafruit.py"**
    * <ENTER_WIFI_SSID>
    * <ENTER_WIFI_PASSWORD>
    * <ENTER_ADAFRUIT_USERNAME>
@@ -56,6 +56,13 @@ $ ampy -pCOMx -d1 put subscribeAdafruit.py main.py
 4. Configure a 2nd device to publish the freeHeap data (see above)
 1. Reset the board
 1. Connect to the REPL with Putty (or simlar) to observe subscribed feed data being received (every 10s in the example code)
+
+## Publishing and Subscribing on the same device
+The file _pubAndSub.py_ shows how a single device can both publish and subscribe.  The method of Subscribing changes 
+in this example.  The non-blocking call client.check_msg() is used rather than the blocking call 
+client.wait_msg().  The debug print output shows the subscription receiving the published data.  
+
+![publish and subscribe](images/pubAndSub.png)
 
 ### Limitations
 * CircuitPython 3.0.0 will continually reset if a secure data connection is enabled
@@ -127,7 +134,6 @@ From the REPL (using Putty, etc) execute the following commands and observe simi
 ```
 >>> from umqtt.robust import MQTTClient
 
->>> dir(MQTTClient)
 >>> dir(MQTTClient)
 ['reconnect', 'log', 'publish', '__module__', 'wait_msg', 'delay', '__qualname__', 'DELAY', 'DEBUG']
 ```

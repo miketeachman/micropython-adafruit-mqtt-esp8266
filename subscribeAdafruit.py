@@ -78,9 +78,7 @@ client = MQTTClient(client_id=mqtt_client_id,
                     user=ADAFRUIT_USERNAME, 
                     password=ADAFRUIT_IO_KEY,
                     ssl=False)
-  
-client.set_callback(cb)                    
-  
+    
 try:      
     client.connect()
 except Exception as e:
@@ -88,6 +86,7 @@ except Exception as e:
     sys.exit()
 
 mqtt_feedname = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_USERNAME, ADAFRUIT_IO_FEEDNAME), 'utf-8')    
+client.set_callback(cb)                    
 client.subscribe(mqtt_feedname)  
 
 # wait until new data has been Published to the Adafruit IO feed
