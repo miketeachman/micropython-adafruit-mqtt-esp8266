@@ -4,7 +4,7 @@ the [Adafruit IO](https://io.adafruit.com) cloud service.  Two example code file
 1. Publish the free heap statistics to Adafruit IO
 2. Subscribe to the free heap statistics from Adafruit IO
 
-![publish/subscribe](images/publishSubscribe.pdf)
+![publish/subscribe](images/publishSubscribe.png)
 
 ### Hardware Support
 * example code tested with 3 boards
@@ -128,10 +128,8 @@ From the REPL (using Putty, etc) execute the following commands and observe simi
 >>> from umqtt.robust import MQTTClient
 
 >>> dir(MQTTClient)
-['__class__', '__init__', '__module__', '__name__', '__qualname__', 'DEBUG', 
-'connect', 'disconnect', 
-'log', 'DELAY', 'delay', 'reconnect', 'publish', 'wait_msg', '_send_str', 
-'_recv_len', 'set_callback', 'set_last_will', 'ping', 'subscribe', 'check_msg']
+>>> dir(MQTTClient)
+['reconnect', 'log', 'publish', '__module__', 'wait_msg', 'delay', '__qualname__', 'DELAY', 'DEBUG']
 ```
 
 If you see this result you have successfully installed the umqtt package. :tada: :relieved:
