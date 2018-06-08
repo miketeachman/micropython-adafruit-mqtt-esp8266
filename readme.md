@@ -1,6 +1,12 @@
 # MQTT protocol with Adafruit IO using MicroPython and CircuitPython
 MicroPython and CircuitPython examples showing how to use the [MQTT](http://mqtt.org/faq) protocol with 
-the [Adafruit IO](https://io.adafruit.com) cloud service.  Three example code files:
+the [Adafruit IO](https://io.adafruit.com) cloud service.  The example code shows how a
+[Heap](https://docs.micropython.org/en/latest/pyboard/reference/constrained.html#the-heap) statistic
+(free heap size in bytes) can be used with MQTT at Adafruit IO.  This heap statistic provides a convenient means
+to show the MQTT capabilities.  The implementation can be changed to use MQTT Publish/Subscribe with sensor data or any other 
+data.
+
+Three example code files:
 1. Publish the free heap statistics to Adafruit IO
 1. Subscribe to the free heap statistics from Adafruit IO
 1. Publish and Subscribe in the same program
