@@ -1,8 +1,9 @@
 # MQTT protocol with Adafruit IO using MicroPython and CircuitPython
 MicroPython and CircuitPython examples showing how to use the [MQTT](http://mqtt.org/faq) protocol with 
-the [Adafruit IO](https://io.adafruit.com) cloud service.  Two example code files:
+the [Adafruit IO](https://io.adafruit.com) cloud service.  Three example code files:
 1. Publish the free heap statistics to Adafruit IO
-2. Subscribe to the free heap statistics from Adafruit IO
+1. Subscribe to the free heap statistics from Adafruit IO
+1. Publish and Subscribe in the same program
 
 ![publish/subscribe](images/publishSubscribe.png)
 
@@ -64,6 +65,8 @@ client.wait_msg().  The debug print output shows the subscription receiving the 
 
 ![publish and subscribe](images/pubandsub.png)
 
+---
+
 ### Limitations
 * CircuitPython 3.0.0 will continually reset if a secure data connection is enabled
 
@@ -101,7 +104,7 @@ The example code requires the MicroPython MQTT (UMQTT) Package.  Some firmware r
     * micropython-lib-master\umqtt.robust\umqtt\simple.py
     * micropython-lib-master\umqtt.robust\umqtt\robust.py
   
-Copy these two files to MicroPython filesystem with the directory structure shown below.  
+Copy these two files to the MicroPython filesystem with the directory structure shown below.  
 
 ```
 boot.py
