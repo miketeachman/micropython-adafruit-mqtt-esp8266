@@ -89,7 +89,14 @@ mqtt_feedname = bytes('{:s}/feeds/{:s}'.format(ADAFRUIT_USERNAME, ADAFRUIT_IO_FE
 client.set_callback(cb)                    
 client.subscribe(mqtt_feedname)  
 
-# wait until new data has been Published to the Adafruit IO feed
+# following two lines is an Adafruit-specific implementation of the Publish "retain" feature 
+# which allows a Subscription to immediately receive the last Published value for a feed,
+# even if that value was Published two hours ago.
+# Described in the Adafruit IO blog, April 22, 2018:  https://io.adafruit.com/blog/  
+mqtt_feedname_get = bytes('{:s}/get'.format(mqtt_feedname), 'utf-8')    
+client.publish(mqtt_feedname_get, '\0')  
+
+# wait until data has been Published to the Adafruit IO feed
 while True:
     try:
         client.wait_msg()
