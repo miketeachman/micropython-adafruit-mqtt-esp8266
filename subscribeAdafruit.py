@@ -1,5 +1,5 @@
 # The MIT License (MIT)
-# Copyright (c) 2018 Mike Teachman
+# Copyright (c) 2019 Mike Teachman
 # https://opensource.org/licenses/MIT
 #
 # Example MicroPython and CircuitPython code showing how to use the MQTT protocol to  
@@ -9,10 +9,12 @@
 #   ESP8266
 #       MicroPython 1.9.3
 #       MicroPython 1.9.4
+#       MicroPython 1.10
 #       CircuitPython 2.3.1     (needs addition of CircuitPython specific umqtt module)
 #       CircuitPython 3.0.0     (needs addition of CircuitPython specific umqtt module)
 #   ESP32
 #       MicroPython 1.9.4       (needs addition of MicroPython umqtt module)
+#       MicroPython 1.10
 #
 # Tested using the following boards:
 #   Adafruit Feather HUZZAH ESP8266
@@ -68,7 +70,7 @@ mqtt_client_id = bytes('client_'+str(random_num), 'utf-8')
 #   set MQTTClient initializer parameter to "ssl=True"
 #   Caveat: a secure connection uses about 9k bytes of the heap
 #         (about 1/4 of the micropython heap on the ESP8266 platform)
-ADAFRUIT_IO_URL = b'io.adafruit.com' 
+ADAFRUIT_IO_URL = b'io.adafruit.com'
 ADAFRUIT_USERNAME = b'<ENTER_ADAFRUIT_USERNAME>'
 ADAFRUIT_IO_KEY = b'<ENTER_ADAFRUIT_IO_KEY>'
 ADAFRUIT_IO_FEEDNAME = b'freeHeap'

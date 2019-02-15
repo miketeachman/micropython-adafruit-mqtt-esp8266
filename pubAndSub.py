@@ -1,5 +1,5 @@
 # The MIT License (MIT)
-# Copyright (c) 2018 Mike Teachman
+# Copyright (c) 2019 Mike Teachman
 # https://opensource.org/licenses/MIT
 #
 # Example MicroPython and CircuitPython code showing how to use the MQTT protocol with Adafruit IO, to  
@@ -9,10 +9,12 @@
 #   ESP8266
 #       MicroPython 1.9.3
 #       MicroPython 1.9.4
+#       MicroPython 1.10
 #       CircuitPython 2.3.1     (needs addition of CircuitPython specific umqtt module)
 #       CircuitPython 3.0.0     (needs addition of CircuitPython specific umqtt module)
 #   ESP32
 #       MicroPython 1.9.4       (needs addition of MicroPython umqtt module)
+#       MicroPython 1.10
 #
 # Tested using the following boards:
 #   Adafruit Feather HUZZAH ESP8266

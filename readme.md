@@ -79,6 +79,7 @@ client.wait_msg().  The debug print output shows the subscription receiving the 
 ### Tested with these MicroPython Releases
 * MicroPython 1.9.3
 * MicroPython 1.9.4
+* MicroPython 1.10
 
 ### Tested with these CircuitPython Releases
 * CircuitPython 2.3.1
@@ -86,7 +87,7 @@ client.wait_msg().  The debug print output shows the subscription receiving the 
 
 ### Recommended Tools for Windows
 * Adafruit Ampy to copy files to the filesystem
-    * install version 1.0.3 which has the -d option (use **-d1** to avoid USB connection issues in Windows)
+    * install version 1.0.3 or newer which has the -d option (use **-d1** to avoid USB connection issues in Windows)
 * Putty to interact with the REPL  
     * set Serial speed to 115200 and Flow control to None
 
@@ -97,7 +98,9 @@ The example code requires the MicroPython MQTT (UMQTT) Package.  Some firmware r
 | ------------- |:-------------:| :-----:|
 | MicroPython 1.9.3 for ESP8266 | Yes | n/a |
 | MicroPython 1.9.4 for ESP8266 | Yes | n/a | 
+| MicroPython 1.10  for ESP8266 | Yes | n/a | 
 | MicroPython 1.9.4 for ESP32   | **No** | [Micropython lib](https://github.com/micropython/micropython-lib) |
+| MicroPython 1.10  for ESP32   | Yes | n/a | 
 | CircuitPython 2.3.1 for ESP8266 |  **No** |[CircuitPython lib](https://github.com/MikeTeachman/micropython-lib) |
 | CircuitPython 3.0.0 for ESP8266  | **No** | [CircuitPython lib](https://github.com/MikeTeachman/micropython-lib) | 
 
